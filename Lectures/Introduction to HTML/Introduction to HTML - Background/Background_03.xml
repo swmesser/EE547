@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Introduction to HTML - Background -->
+<document
+  xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Background_03.xsd">
+  <title>Background #3</title>  
+  <contents>
+    <info>Introduction to HTML - Background</info>
+    <info>Hello and welcome to "Introduction to HTML - Background"!</info>
+    <info>This is a sample xml file.</info>
+  </contents>
+</document>

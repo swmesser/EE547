@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArraysDemo</title>
+    <script src="ArrayDemo.js"></script>
+</head>
+<body>
+    <label for="manufacturers">Manufacturers: </label>
+    <select id="manufacturers" onchange="PopulateModels()"></select>
+
+    <br>
+    <label for="models">Models: </label>
+    <select id="models" onchange="PopulateResults()"></select>
+    
+    <br>
+    <label for="results">Results: </label>
+    <input id="results" type="text" readonly="readonly" value="Nothing Selected">
+
+    <script>
+        PopulateManufacturers()
+        //Initial Call to prevent user from seeing blank selection
+        PopulateModels()
+    </script>
+
+</body>
+</html>

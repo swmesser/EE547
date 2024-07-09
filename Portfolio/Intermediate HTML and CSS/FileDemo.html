@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileDemo.html</title>
+    <script>
+        function PreviewFile(){
+            const contentElement = document.querySelector('.contents');
+            const [filePickerFile] = document.querySelector('input[type=file]').files;
+            //var contentElement = document.getElementById('contents');
+            //var [filePickerFile] = document.getElementById('filepicker').files;
+            const reader = new FileReader();
+            var text = "";
+            var readLine;
+            
+
+            reader.addEventListener(
+                'load',
+                () => {
+                    contentElement.innerText = reader.result;
+                    readLine = contentElement.innerText.split(/\r?\n/);
+                    
+                    //console.log(readLine);
+                    //console.log( readLine);
+                   const make = [];
+                   
+                    for (let i = 0; i < readLine.length; i++){
+                        //Split line into 2 piece array
+                        var chunks = readLine[i].split(',');
+                        //console.log(chunks);
+                        
+                        // Quick test for string in array
+                        if ( !make.includes(chunks[0]) ){
+                            //Appending value to end of array
+                            make.push(chunks[0]);
+                            
+                        }
+                        
+                    }
+                    //console.log(make);
+
+                    for (let i = 0; i < make.length; i++ ){
+                        //document.getElementById('manufacturers').innerHTML += "<option>" + make[i] + "</option>";
+                        document.getElementById('manufacturers').appendChild(new Option(make[i]));
+                    }
+
+                },
+                'false',
+            );
+
+            
+            if (filePickerFile){
+                text = reader.readAsText(filePickerFile);
+                
+            }
+
+        }    
+
+
+        function SelectModels(){
+            // get manufacturer selected
+            // reparse contents of file looking at the first column to match selected make
+            var reader = new FileReader();
+            const [filePickerFile] = document.querySelector('input[type=file]').files;
+            const selectedMake = document.getElementById('manufacturers').value;
+            
+            var readFile;
+            var readLine;
+            var models = [];
+            document.getElementById('models').innerHTML = "";
+            reader.addEventListener(
+                'load',
+                () =>{
+                    readLine = reader.result.split('\r\n');
+
+                    for( let i = 0; i < readLine.length; i++ ){
+                        var chunk = readLine[i].split(',');
+
+                        if(chunk[0] == selectedMake){
+                            models.push(chunk[1]);
+                        }
+                    }
+                    for( let i = 0; i < models.length; i++){
+                        document.getElementById('models').innerHTML += "<option>" + models[i] + "</option>";
+                    }
+                },
+                'false',
+            );
+
+            if (filePickerFile){
+                readFile = reader.readAsText(filePickerFile);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="file" id="filepicker" onchange="PreviewFile()" />
+    <p class="contents">Default Text</p>
+
+    <!--NEED TO ADD 2 DROPDOWNS-->
+    <!--One for the brand vehicle-->
+    <!--One for the model-->
+    <!--
+        Need to be able to pull all data from csv then 
+        split the values to filter down to one of each brand and model
+        Be able to select only models found with that brand
+    -->
+    <br> <br>
+    <label for="manufacturers">Manufacturers: </label>
+    <select id="manufacturers" onchange="SelectModels()"></select>    
+    
+    <br>
+    <label for="models">Models: </label>
+    <select id="models"></select>
+
+</body>
+</html>
