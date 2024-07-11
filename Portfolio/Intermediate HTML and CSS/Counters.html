@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counters</title>
+    <script src="Counters.js">
+
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Original JavaScript Example (client, single page)</h2>
+        <button onclick="subtract()" id="down">down</button>
+        <input type="text" id="result" value="0" readonly="readonly"
+        onclick="eventHandler('OnClick')"
+        onfocus="eventHandler('OnFocus')">
+        <button onclick="add()" id="up">up</button>
+    </div>
+
+
+    <div>
+        <h2>Form that captures the current values and passes it to a new page (client)</h2>
+        <form action="Counters.html" id="v1">
+            <input type="submit" value="down" name="operation"/>
+            <input type="text"  value="0" readonly="readonly" id="formResults" name="formResults" />
+            <input type="submit" value="up" name="operation"/>
+        </form>
+        
+        <script>
+            formLoad();
+        </script>
+    </div>
+
+
+    <div>
+        <h2>Passing from one page to another without a form (client)</h2>
+        <button onclick="downHelper('down');">down</button>
+        <input type="text" id="inputResult" value="0" readonly="readonly">
+        <button onclick="upHelper('up');">up</button>
+    </div>
+
+</body>
+</html>
