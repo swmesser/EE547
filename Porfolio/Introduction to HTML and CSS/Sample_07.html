@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sample_07.html</title>
+        <style>
+            h3 {
+                color: orange;
+            }
+            
+            #sample_id {
+                color:chartreuse;
+                font-size: x-large;
+            }
+
+            .sample_class {
+                color:orchid
+            }
+            
+            #alternating, td {
+                border: double;
+            }
+
+            .even {
+                background-color: chocolate;
+            }
+
+            .odd {
+                background-color: mediumblue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Compare the various methods for styling our HTML</h1>        
+
+        <h2>Inline Styles</h2>
+        <p style="color:aqua">This is a sample text!</p>
+        <p style="color:red;font-size:xx-large;">This is another sample text!</p>
+        <table style="border:double">
+            <tr>
+                <td>Example1</td>
+                <td>Example2</td>
+            </tr>
+        </table>
+
+        <br/><br/>
+
+        <h3>This is a shared style</h3>
+        <h3 class="sample_class">This is another example</h3>
+
+        <p>This is an example of an unstyled p tag</p>
+        <p id="sample_id">This is an example of a styled p tag by id</p>
+        <p class="sample_class">This is an example of a styled p tag by class</p>
+
+        <br/>
+        <br/>
+        <table id="alternating">
+            <tr class="even"><td>Row 1</td></tr>
+            <tr class="odd"><td>Row 2</td></tr>
+            <tr class="even"><td>Row 3</td></tr>
+            <tr class="odd"><td>Row 4</td></tr>
+        </table>
+    </body>
+</html>
