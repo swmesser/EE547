@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipts.html</title>
+</head>
+<body>
+    <p>Quantities</p>
+    <p id="quantity"></p>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+
+        var pepperoniPizzaQty = urlParams.get('pepperoniPizzaQty');
+        document.getElementById('quantity').innerHTML = "Pepperoni Pizza: " + pepperoniPizzaQty + "</>"
+    </script>
+
+</body>
+</html>

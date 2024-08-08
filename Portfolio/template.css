@@ -6,6 +6,8 @@ body {
     
     margin: 0;
     background-color: rgb(167, 127, 81);
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes fadeIn {
@@ -82,13 +84,15 @@ body {
 }
 
 .footer i {
-    font-size: 30px;
+    font-size: 40px;
     margin-right: 10px;
+    margin-top: auto;
 }
 
 .shadowBox {
     height: auto;
-    background-color: rgb(180, 215, 206); 
+    /*background-color: rgb(180, 215, 206);*/
+    background-color: #abaaa7;
     box-shadow: 0px 0px 5px 1px #000; 
     border: hidden;
     border-radius: 10px;
