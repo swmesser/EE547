@@ -13,6 +13,3 @@ function add(elementId){
     document.getElementById(elementId).value = a;
 }
 
-function eventHandler(text) {
-    alert("Something " + text);
-}

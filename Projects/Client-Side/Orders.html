@@ -8,6 +8,7 @@
     <script src="Orders.js"></script>
 </head>
 <body>
+    <h2 class="header">Blaze's Pizzeria</h2>
     <form action="Receipts.html">    
         <table class="orders" id="ordersId">
             <thead>
@@ -16,6 +17,7 @@
                     <th class="orders">Description</th>
                     <th class="orders">Size</th>
                     <th class="orders">Quantity</th>
+                    <th class="orders">Price</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +30,7 @@
                         <p>A crispy crust topped with tangy tomato sauce, melted mozzarella cheese, and spicy, smoky slices of pepperoni that crisp up and release flavorful oils during baking.</p>
                     </td>
                     <td class="orders_cell">
-                        <select id="pepperoniPizzaSize" class="size" name="size">
+                        <select id="pepperoniPizzaSize" class="size" name="pepperoniPizzaSize">
                             <option>SM</option>
                             <option>MD</option>
                             <option>LG</option>
@@ -37,6 +39,7 @@
                     <td class="orders_cell">
                         <input type="number" value="0" name="pepperoniPizzaQty">
                     </td>
+                    <td class="orders_cell">$3.50</td>
 
                 </tr>
                 <tr>
@@ -46,23 +49,44 @@
                         </a>
                     </td>
                     <td class="orders_cell">
-                        <input type="text" readonly="readonly" value="A crispy crust topped with a tangy tomato sauce and a generous layer of melted mozzarella cheese baked to a perfect golden-brown.">
+                        <p>A crispy crust topped with a tangy tomato sauce and a generous layer of melted mozzarella cheese baked to a perfect golden-brown.</p>
                     </td>
                     <td class="orders_cell">
-                        <select id="cheesePizzaSize" class="size" name="size">
+                        <select id="cheesePizzaSize" class="size" name="cheesePizzaSize">
                             <option>SM</option>
                             <option>MD</option>
                             <option>LG</option>
                         </select>
                     </td>
                     <td class="orders_cell">
-                        <button type="button" onclick="subtract('pizzaQuantity')" id="down">down</button>
-                        <input type="text" id="pizzaQuantity" value="0" readonly="readonly" name="pizzaQuantity"
-                        onclick="eventHandler('OnClick')"
-                        onfocus="eventHandler('OnFocus')">
-                        <button type="button" onclick="add('pizzaQuantity')" id="up">up</button>
+                        <button type="button" onclick="subtract('cheesePizzaQty')" id="down">down</button>
+                        <input type="text" id="cheesePizzaQty" value="0" readonly="readonly" name="cheesePizzaQty">
+                        <button type="button" onclick="add('cheesePizzaQty')" id="up">up</button>
                     </td>
-
+                    <td class="orders_cell">$2.50</td>
+                </tr>
+                <tr>
+                    <td class="orders_cell">
+                        <a href="images/hawaiian_pizza.jpg" target="_parent">
+                            <img src="images/hawaiian_pizza.jpg" alt="Hawaiian Pizza" width="100" height="100">
+                        </a>
+                    </td>
+                    <td class="orders_cell">
+                        <p>A savory and sweet combination, featuring a tomato sauce base topped with mozzarella cheese, slices of ham, and juicy pineapple chunks</p>
+                    </td>
+                    <td class="orders_cell">
+                        <select id="hawaiianPizzaSize" class="size" name="hawaiianPizzaSize">
+                            <option>SM</option>
+                            <option>MD</option>
+                            <option>LG</option>
+                        </select>
+                    </td>
+                    <td class="orders_cell">
+                        <button type="button" onclick="subtract('hawaiianPizzaQty')" id="down">down</button>
+                        <input type="text" id="hawaiianPizzaQty" value="0" readonly="readonly" name="hawaiianPizzaQty">
+                        <button type="button" onclick="add('hawaiianPizzaQty')" id="up">up</button>
+                    </td>
+                    <td class="orders_cell">$2.50</td>
                 </tr>
             </tbody>
         </table>

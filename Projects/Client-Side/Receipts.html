@@ -4,16 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receipts.html</title>
+    <link rel="stylesheet" href="Receipts.css">
 </head>
 <body>
-    <p>Quantities</p>
-    <p id="quantity"></p>
+    <h1 class="header">Thank you for Dining with us at Blaze's Pizzeria</h1>
+    <table id="itemList">
+        <tr>
+            <th>Item</th>
+            <th>Size</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+
     <script>
+        let tableRef = document.getElementById("itemList");
         var urlParams = new URLSearchParams(window.location.search);
 
-        var pepperoniPizzaQty = urlParams.get('pepperoniPizzaQty');
-        document.getElementById('quantity').innerHTML = "Pepperoni Pizza: " + pepperoniPizzaQty + "</>"
-    </script>
+        var price;
+        var pepperoniPizzaQty = parseInt(urlParams.get('pepperoniPizzaQty'));
+        var cheesePizzaQty = parseInt(urlParams.get('cheesePizzaQty'));
+        var hawaiianPizzaQty = parseInt(urlParams.get('hawaiianPizzaQty'));
 
+        var pepperoniPizzaSize = urlParams.get('pepperoniPizzaSize');
+        var cheesePizzaSize = urlParams.get('cheesePizzaSize');
+        var hawaiianPizzaSize = urlParams.get('hawaiianPizzaSize');
+
+        var totalPepperoniPrice = 0;
+        var totalCheesePrice = 0;
+        var totalHawaiianPrice = 0;
+        
+        if (pepperoniPizzaQty >= 1){
+            if (pepperoniPizzaSize == "SM"){
+                price = 4.50;
+            } else if (pepperoniPizzaSize == "MD"){
+                price = 5.50;
+            } else {
+                price = 6.50;
+            }
+            totalPepperoniPrice = parseFloat(pepperoniPizzaQty * price);
+            let newRow = tableRef.insertRow(-1);
+            let itemCell = newRow.insertCell(0);
+            let sizeCell = newRow.insertCell(1);
+            let qtyCell = newRow.insertCell(2);
+            let priceCell = newRow.insertCell(3);
+
+            itemCell.append("Pepperoni Pizza");
+            sizeCell.append(pepperoniPizzaSize);
+            qtyCell.append(pepperoniPizzaQty);
+            priceCell.append("$" + totalPepperoniPrice);
+        }
+
+        if (cheesePizzaQty >= 1){
+            if (cheesePizzaSize == "SM"){
+                price = 2.50;
+            } else if (cheesePizzaSize == "MD"){
+                price = 3.50;
+            } else {
+                price = 4.50;
+            }
+            totalCheesePrice = parseFloat(cheesePizzaQty * price);
+            let newRow = tableRef.insertRow(-1);
+            let itemCell = newRow.insertCell(0);
+            let sizeCell = newRow.insertCell(1);
+            let qtyCell = newRow.insertCell(2);
+            let priceCell = newRow.insertCell(3);
+
+            itemCell.append("Cheese Pizza");
+            sizeCell.append(cheesePizzaSize);
+            qtyCell.append(cheesePizzaQty);
+            priceCell.append("$" + totalCheesePrice);
+
+        } 
+
+        if (hawaiianPizzaQty >= 1){
+            if (hawaiianPizzaSize == "SM"){
+                price = 6.50;
+            } else if (hawaiianPizzaSize == "MD"){
+                price = 7.50;
+            } else {
+                price = 8.50;
+            }
+            totalHawaiianPrice = parseFloat(hawaiianPizzaQty * price);
+            let newRow = tableRef.insertRow(-1);
+            let itemCell = newRow.insertCell(0);
+            let sizeCell = newRow.insertCell(1);
+            let qtyCell = newRow.insertCell(2);
+            let priceCell = newRow.insertCell(3);
+            
+            itemCell.append("Hawaiian Pizza");
+            sizeCell.append(hawaiianPizzaSize);
+            qtyCell.append(hawaiianPizzaQty);
+            priceCell.append("$" + totalHawaiianPrice);
+        }
+
+        var totalPrice = totalCheesePrice + totalHawaiianPrice + totalPepperoniPrice;
+       
+        let newRow = tableRef.insertRow(-1)
+        newRow.id = "totalRow";
+        let itemCell = newRow.insertCell(0).append("Total:")
+        let sizeCell = newRow.insertCell(1).append("");
+        let qtyCell = newRow.insertCell(2).append( cheesePizzaQty + pepperoniPizzaQty + hawaiianPizzaQty);
+        let priceCell = newRow.insertCell(3).append("$" + totalPrice);
+
+    </script>
 </body>
 </html>
