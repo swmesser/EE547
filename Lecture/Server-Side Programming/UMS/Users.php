@@ -9,10 +9,12 @@
     <table class="userTable">
         <tr>
             <td class="tableHead">Index</td>
+            <td class="tableHead">User Id</td>
             <td class="tableHead">Firstname</td>
             <td class="tableHead">Lastname</td>
             <td class="tableHead">Email</td>
             <td class="tableHead">Login Date</td>
+            <td class="tableHead">Remove</td>
         </tr>
     
 
@@ -30,27 +32,31 @@
 
             $chunks = str_getcsv($line);
 
-        if (count($chunks) == 4){
+        if (count($chunks) == 5){
 
                 if (($i % 2) == 0){
                     // even rows
                     echo "<tr>";
                     #echo "<td class=tableCellEven>" . $i . "</td>";
-                    echo "<td class=tableCellEven><a href='/UMS/UserView.php?email=" . $chunks[2] . "'>" . $i . "</a></td>";
+                    echo "<td class=tableCellEven><a href='/UMS/UserView.php?userId=" . $chunks[0] . "'>" . $i . "</a></td>";
                     echo "<td class=tableCellEven>" . $chunks[0] . "</td>";
                     echo "<td class=tableCellEven>" . $chunks[1] . "</td>";
-                    echo "<td class=tableCellEven><a href='mailto:" . $chunks[2] . "'>" . $chunks[2] . "</a></td>";
-                    echo "<td class=tableCellEven>" . $chunks[3] . "</td>";
+                    echo "<td class=tableCellEven>" . $chunks[2] . "</td>";
+                    echo "<td class=tableCellEven><a href='mailto:" . $chunks[3] . "'>" . $chunks[3] . "</a></td>";
+                    echo "<td class=tableCellEven>" . $chunks[4] . "</td>";
+                    echo "<td class=tableCellEven><a href='/UMS/UserDelete.php?userId=" . $chunks[0] . "'>Remove</a></td>";
                     echo "</tr>";
                 } else {
                     // odd rows
                     echo "<tr>";
                     #echo "<td class=tableCellOdd>" . $i . "</td>";
-                    echo "<td class=tableCellOdd><a href='/UMS/UserView.php?email=" . $chunks[2] . "'>" . $i . "</a></td>";
+                    echo "<td class=tableCellOdd><a href='/UMS/UserView.php?userId=" . $chunks[0] . "'>" . $i . "</a></td>";
                     echo "<td class=tableCellOdd>" . $chunks[0] . "</td>";
                     echo "<td class=tableCellOdd>" . $chunks[1] . "</td>";
-                    echo "<td class=tableCellOdd><a href='mailto:" . $chunks[2] . "'>" . $chunks[2] . "</a></td>";
-                    echo "<td class=tableCellOdd>" . $chunks[3] . "</td>";
+                    echo "<td class=tableCellOdd>" . $chunks[2] . "</td>";
+                    echo "<td class=tableCellOdd><a href='mailto:" . $chunks[3] . "'>" . $chunks[3] . "</a></td>";
+                    echo "<td class=tableCellOdd>" . $chunks[4] . "</td>";
+                    echo "<td class=tableCellOdd><a href='/UMS/UserDelete.php?userId=" . $chunks[0] . "'>Remove</a></td>";
                     echo "</tr>";
                 }
             }

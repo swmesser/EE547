@@ -15,8 +15,8 @@
         //  labels + inputs (readonly)
 
         if ($_SERVER['REQUEST_METHOD'] == 'GET'){
-            if (( isset($_GET['email']) == true && strlen($_GET['email']) > 0 )){
-                $email = $_GET['email'];
+            if (( isset($_GET['userId']) == true && strlen($_GET['userId']) > 0 )){
+                $userId = $_GET['userId'];
 
                 $userFile = fopen("users.csv", "r");
                 if ($userFile == NULL ){
@@ -28,8 +28,8 @@
                         $line = fgets($userFile);
                         $chunks = str_getcsv($line);
 
-                        if (count($chunks) == 4) {
-                            if ( $chunks[2] == $email ){
+                        if (count($chunks) == 5) {
+                            if ( $chunks[0] == $userId ){
                                 $found = true;
                             }
                         } else {
@@ -42,14 +42,16 @@
                     fclose($userFile);
                     
                     if ($found == true){
+                        echo "<label for='userId'>User Id: </label>";
+                        echo "<input type='text'  id='userId' readonly='readonly' value='". $chunks[0] ."'/> <br>";
                         echo "<label for='fname'>Firstname: </label>";
-                        echo "<input type='text'  id='fname' readonly='readonly' value='". $chunks[0] ."'/> <br>";
+                        echo "<input type='text'  id='fname' readonly='readonly' value='". $chunks[1] ."'/> <br>";
                         echo "<label for='lname'>Lastname: </label>";
-                        echo "<input type='text'  id='lname' readonly='readonly' value='" . $chunks[1] ."'/> <br>";
+                        echo "<input type='text'  id='lname' readonly='readonly' value='" . $chunks[2] ."'/> <br>";
                         echo "<label for='email'>Email: </label>";
-                        echo "<input type='text'  id='email' readonly='readonly' value='" .$chunks[2] ."'/> <br>";
+                        echo "<input type='text'  id='email' readonly='readonly' value='" .$chunks[3] ."'/> <br>";
                         echo "<label for='datetime'>Datetime: </label>";
-                        echo "<input type='text'  id='datetime' readonly='readonly' value='" .$chunks[3] ."'/> <br>";
+                        echo "<input type='text'  id='datetime' readonly='readonly' value='" .$chunks[4] ."'/> <br>";
                     }else{
                         echo "Warning: User not found!";
                         echo "<br> <a href='/UMS/UserAdd.html'>Add User!</a>";
@@ -59,6 +61,8 @@
                 echo "Error: No email was passed!";
             }
             
+        } else {
+            echo "Error: Request method not handled yet!";
         }
 
 

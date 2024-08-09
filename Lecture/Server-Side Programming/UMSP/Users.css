@@ -1,0 +1,19 @@
+.userTable {
+    border: double;
+}
+
+.tableHead {
+    font-weight: bold;
+    background-color: grey; /* Correcting potential typo */
+    border:solid;
+}
+
+.tableCellEven {
+    background-color: darkgrey; /* Correcting potential typo */
+    border:solid;
+}
+
+.tableCellOdd {
+    background-color: white; /* Correcting potential typo */
+    border:solid;
+}

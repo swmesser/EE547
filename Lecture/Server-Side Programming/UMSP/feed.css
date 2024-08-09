@@ -1,0 +1,17 @@
+.header{
+    font-weight: 300;
+}
+
+.feedContent{
+    display:flex;
+    flex-direction: column;
+}
+
+.feedItemUnread{
+    display:flex;
+    flex-direction: row;
+}
+
+.content{
+    margin-right:10px;
+}
