@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+            #inputHeader {
+                font-size: 16px;
+            }
+
+            .testButton {
+                margin-left: 0px;
+                margin-top: 10px;
+                box-shadow: none;
+            }
+
+            .testButton:active {
+                background-color: darkgray;
+                box-shadow: 2px 2px #888;
+            }
+            
+            #message {
+                border-color: lightgray;
+                
+            }
+
+            input { 
+                margin-left: 10px;
+                margin-top: 4px;
+                border:solid;
+                border-width: 1px;
+                border-radius: 5px;
+                padding: 4px;
+            }
+
+
+        </style>
+
+        <script>
+            // alert('Loading!');
+
+            function ClickMe(){
+                alert('HELLO!!!');
+                
+            }
+
+            function ClickMeWithInput(){
+                var firstName = document.getElementById("fname");
+                var lastName = document.getElementById("lname");
+                var message = "Hello " + firstName.value + " " + lastName.value;
+
+                //Edits the value within the value in the input box
+                document.getElementById('message').value = message;
+                //Edits the text within the tags
+                document.getElementById('messageParagraph').innerHTML = message;
+                document.getElementById('messageBold').innerHTML = '<b>' + message + '<b/>';
+
+                //alert(message);
+                //alert( firstName );
+                //alert( 'Hello ' +  firstName.value + " " + lastName.value );
+            }
+        </script>
+
+        <title>Sample_01.html</title>
+    </head>
+    <body>
+        <h1>Introduction to behavior (input + javascript)</h1>
+
+        <label id="inputHeader" for="fname">First Name:</label> <br/>
+        <input type="text" id="fname" value="default value" > <br/><br/>
+
+        <label id="inputHeader" for="lname">Last Name:</label> <br/>
+        <input type="text" id="lname" value="default value"> <br/>
+
+        <input class="testButton" type="button" value="Click Me! (inline)" onclick="alert('Hello!')"> <br/>
+        <input class="testButton" type="button" value="Click Me! (inhead)" onclick="ClickMe()"> <br/>
+
+        <input class="testButton" type="button" value="Click Me! (inhead with input)" onclick="ClickMeWithInput()"> <br/>
+
+        <input type="text" readonly="readonly" id="message">
+        <p id="messageParagraph">Default Value</p> <br/>
+        <p id="messageBold">Default Value</p>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,115 @@
+*{
+    box-sizing: border-box;   
+}
+
+body {
+    
+    margin: 0;
+    background-color: rgb(167, 127, 81);
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to   {opacity: 1;}
+}
+
+
+/* Style the top navigation */
+/* Horizontal Menu*/
+.sidenav {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #584d3e;
+    overflow-x: hidden;
+    display:flex;
+}
+  
+/* Side Navigation Link */
+.sidenav-item {
+    color: white;
+    padding: 14px;
+    align-items: center;
+    display: flex;
+    transition: all 0.5s 
+
+}
+
+.sidenav-item i{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+}
+
+.sidenav-item p{
+    margin:0;
+    font-size: 20px;
+    font-family: espiritu-condensed, sans-serif;
+}
+
+/* Change color on hover */
+.sidenav-item:hover {
+    
+    background-color: #ddd;
+    color: black;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: black;
+    
+}
+
+  
+/* Style the content */
+.content {
+    animation: fadeIn 2s;
+    margin: 0;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.footer i {
+    font-size: 40px;
+    margin-right: 10px;
+    margin-top: auto;
+}
+
+.shadowBox {
+    height: auto;
+    /*background-color: rgb(180, 215, 206);*/
+    background-color: #abaaa7;
+    box-shadow: 0px 0px 5px 1px #000; 
+    border: hidden;
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.divider {
+    border-top: 2px solid black;
+    margin: 20px;
+}
+
+.customLogo{
+    filter: invert(100%);
+    margin-left: 50px;
+    width:10%;
+}
+
+

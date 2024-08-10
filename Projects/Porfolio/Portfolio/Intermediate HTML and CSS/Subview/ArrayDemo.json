@@ -1,0 +1,15 @@
+[
+    {"manufacturer": "Honda", "model": "Accord"},
+    {"manufacturer": "Honda", "model": "Civic"},
+    {"manufacturer": "Honda", "model": "CRV"},
+    {"manufacturer": "Toyota", "model": "Camry"},
+    {"manufacturer": "Toyota", "model": "Corrola"},
+    {"manufacturer": "Toyota", "model": "Forerunner"},
+    {"manufacturer": "Toyota", "model": "Tacoma"},
+    {"manufacturer": "Ford", "model": "F150"},
+    {"manufacturer": "Ford", "model": "F250"},
+    {"manufacturer": "Ford", "model": "F350"},
+    {"manufacturer": "Ford", "model": "Explorer"}
+]
+
+

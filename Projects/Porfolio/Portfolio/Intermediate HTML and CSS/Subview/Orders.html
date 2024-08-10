@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders.html</title>
+    <link rel="stylesheet" href="Orders.css">
+    <script src="Orders.js"></script>
+</head>
+<body>
+    <form action="Receipts.html">    
+        <table class="orders" id="ordersId">
+            <thead>
+                <tr>
+                    <th class="orders">Item</th>
+                    <th class="orders">Description</th>
+                    <th class="orders">Size</th>
+                    <th class="orders">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr> 
+                    <td class="orders_cell">
+                        <img src="images/Chicken_Sandwich.jpg" alt="Chicken_Sandwich" onclick="alert('Clicked!');"
+                            width="100" height="100">
+                    </td>
+                    <td class="orders_cell">
+                        <p>This is the description for the Chicken Sandwich</p>
+                    </td>
+                    <td class="orders_cell">
+                        <select id="sandwich_size" class="size" name="size">
+                            <option>SM</option>
+                            <option>MD</option>
+                            <option>LG</option>
+                        </select>
+                    </td>
+                    <td class="orders_cell">
+                        <input type="number" value="0" name="sandwichQuantity">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="orders_cell">
+                        <a href="images/cheese_pizza.jpg" target="_parent">
+                            <img src="images/cheese_pizza.jpg" alt="Cheese Pizza" width="100" height="100">
+                        </a>
+                    </td>
+                    <td class="orders_cell">
+                        <input type="text" readonly="readonly" value="This the description for the pizza">
+                    </td>
+                    <td class="orders_cell">
+                        <select id="pizza_size" class="size" name="size">
+                            <option>SM</option>
+                            <option>MD</option>
+                            <option>LG</option>
+                        </select>
+                    </td>
+                    <td class="orders_cell">
+                        <button type="button" onclick="subtract('pizzaQuantity')" id="down">down</button>
+                        <input type="text" id="pizzaQuantity" value="0" readonly="readonly" name="pizzaQuantity"
+                        onclick="eventHandler('OnClick')"
+                        onfocus="eventHandler('OnFocus')">
+                        <button type="button" onclick="add('pizzaQuantity')" id="up">up</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <input type="submit" value="Order Now!">
+    </form>
+
+   
+
+</body>
+</html>

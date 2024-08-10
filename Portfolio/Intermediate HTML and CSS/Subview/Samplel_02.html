@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sample_02.html</title>
+        <script>
+
+            function selectByButton(){
+                var selectElement = document.getElementById("selectNumber");
+                var text = selectElement.options[selectElement.selectedIndex].text;
+
+                /*
+                alert( selectElement );
+                alert( selectElement.value );
+                alert(text);
+                */
+                document.getElementById('messageInput').value = 'by_button: ' + text
+            }
+
+            function selectOnChange(){
+                var selectElement = document.getElementById('selectNumber');
+
+                document.getElementById('messageInput').value = "on_change: " + selectElement.options[selectElement.selectedIndex].text;
+
+                /*
+                alert( selectElement );
+                alert( selectElement.value );
+                */
+            }
+
+        </script>
+
+    </head>
+    <body>
+       <h1>Example using a combo box and a text box</h1> 
+       
+       <label for="selectNumber">Select a number: </label>
+       <select id="selectNumber" onchange="selectOnChange()">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+       </select><br/>
+       <input type="button" id="selectButton" value="Click me!" onclick="selectByButton()"> <br/>
+       <input type="text" id="messageInput" readonly="readonly">
+
+    </body>
+</html>

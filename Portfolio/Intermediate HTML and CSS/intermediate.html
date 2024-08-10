@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Web Development</title>
+    <link rel="stylesheet" href="../template.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/etq1kzr.css">
+    <link rel="stylesheet" href="intermediate.css">
+    <script src="intermediate.js"></script>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="sidenav-item" onclick="location.href='../index.html'" >
+            <i class="bi bi-house"></i>
+            <p>Home</p>
+        </div>
+        <div class="sidenav-item" onclick="location.href='../Introduction and Bio/introAndBio.html'" >
+            <i class="bi bi-person"></i>
+            <p>About</p>
+        </div>
+        <div class="sidenav-item" onclick="location.href='../Introduction to HTML and CSS/introToHTML.html'" >
+            <i class="bi bi-file-earmark"></i>
+            <p>Introduction to HTML and CSS</p>
+        </div>
+        <div class="sidenav-item" onclick="location.href='../Intermediate HTML and CSS/intermediate.html'" >
+            <i class="bi bi-laptop"></i>
+            <p>Intermediate Web Development</p>
+        </div>   
+    </div>
+
+    <div class="content">
+       <img src="..\Images\cowboy coding inc.svg" class="customLogo" >
+       <div class="shadowBox">
+            <h2>Intermediate Web Development</h2>
+            <p>
+                The demonstrations seen below are applications and examples of client-side development. 
+                This page is focused on the use of HTML, CSS and page behavior controlled by JavaScript!
+            </p>
+
+            <button id='button1' class="displayButton" onclick="showButton('jsButton', 'button1')">JS Button</button>
+            <div id="jsButton" class="tagDiv">
+                <iframe src="Subview/Sample_01.html" style="height:400px;"></iframe>
+            </div>
+
+            <button id='button2' class="displayButton" onclick="showButton('jsSelect', 'button2')">JS Select</button>
+            <div id="jsSelect" class="tagDiv">
+                <iframe src="Subview/Samplel_02.html" style="height:200px;"></iframe>
+            </div>
+
+            <button id='button3' class="displayButton" onclick="showButton('arrayDemo', 'button3')">Array Demo</button>
+            <div id="arrayDemo" class="tagDiv">
+                <iframe src="Subview/ArrayDemo.html" style="height:100px;"></iframe>
+            </div>
+
+            <button id='button4' class="displayButton" onclick="showButton('counterDemo', 'button4')">Counter Demo</button>
+            <div id="counterDemo" class="tagDiv">
+                <iframe src="Subview/Counter.html" style="height:100px;"></iframe>
+            </div>
+
+            <button id='button5' class="displayButton" onclick="showButton('countersDemo', 'button5')">Counters Demo</button>
+            <div id="countersDemo" class="tagDiv">
+                <iframe src="Subview/Counters.html" style="height:300px;"></iframe>
+            </div>
+
+            <button id='button6' class="displayButton" onclick="showButton('ordersDemo', 'button6')">Orders Demo</button>
+            <div id="ordersDemo" class="tagDiv">
+                <iframe src="Subview/Orders.html" style="height:300px;"></iframe>
+            </div>
+
+            <button id='button7' class="displayButton" onclick="showButton('parentDemo', 'button7')">Parent Demo</button>
+            <div id="parentDemo" class="tagDiv">
+                <iframe src="Subview/Parent.html" style="height:300px;"></iframe>
+            </div>
+       </div>
+    </div>
+</body>
+</html>
