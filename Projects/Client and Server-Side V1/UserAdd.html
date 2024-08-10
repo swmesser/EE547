@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserAdd</title>
-    <script src="UserAdd.js"></script>
+    <script src="/UMS/UserAdd.js"></script>
+    <link rel="stylesheet" href="/UMS/UserAdd.css">
 </head>
 <body>
-    <form action="UserAdd.php" onsubmit="clientValidate();" method="post">
-        <label for="userId">User ID: </label>
-        <input type="text" name="userId" id="userId" required="required"/> <br>
-        <label for="fname">Firstname: </label>
-        <input type="text" name="fname" id="fname" required="required"/> <br>
-        <label for="lname">Lastname: </label>
-        <input type="text" name="lname" id="lname" required="required"/> <br>
-        <label for="email">Email: </label>
-        <input type="text" name="email" id="email" required="required"/> <br>
-        <input type="submit" value="Create User">
+    <h2>Add User</h2>
+    <form action="UserAdd.php" name="AddForm" onsubmit="clientValidate();" method="post">
+        <label class='userItem' for="userId">User ID: </label>
+        <input class='userItem' type="text" name="userId" id="userId" required="required"/> <br>
+        <label class='userItem' for="fname">Firstname: </label>
+        <input class='userItem' type="text" name="fname" id="fname" required="required"/> <br>
+        <label class='userItem' for="lname">Lastname: </label>
+        <input class='userItem' type="text" name="lname" id="lname" required="required"/> <br>
+        <label class='userItem' for="email">Email: </label>
+        <input class='userItem' type="text" name="email" id="email" required="required"/> <br>
+        <input class="submit" type="submit" value="Create User">
     </form>
+
+    <br>
+    <button class="return" onclick="location.href='/UMS/Users.php'">Return to home</button>
 </body>
 </html>

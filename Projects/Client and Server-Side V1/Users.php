@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="Users.css">
 </head>
 <body>
+    <h2 class="header">User Management System</h2>
+
     <table class="userTable">
         <tr>
             <td class="tableHead">Index</td>
@@ -45,8 +47,19 @@
                     echo "<td class=tableCellEven>" . $chunks[2] . "</td>";
                     echo "<td class=tableCellEven><a href='mailto:" . $chunks[3] . "'>" . $chunks[3] . "</a></td>";
                     echo "<td class=tableCellEven>" . $chunks[4] . "</td>";
-                    echo "<td class=tableCellEven><a href='/UMS/UserModify.php?userId=" . $chunks[0] . "'>Edit</a></td>";
-                    echo "<td class=tableCellEven><a href='/UMS/UserDelete.php?userId=" . $chunks[0] . "'>Remove</a></td>";
+                    echo "<td class=tableCellEven>";
+                    echo "<form action='/UMS/UserModify.php' method='POST' style='display: inline;'>";
+                    echo '<input type=hidden name="mode" value="selected">';
+                    echo "<input type=hidden name='userId' value='" . $chunks[0] . "'/>";
+                    echo "<button type='submit'>Edit</button>";
+                    echo "</form>";
+                    echo "</td>";
+                    echo "<td class=tableCellEven>";
+                    echo "<form action='/UMS/UserDelete.php' method='GET' style='display:inline;'>";
+                    echo "<input type=hidden name='userId' value='" . $chunks[0] . "'>"; 
+                    echo "<button type='submit'>Remove</button>";
+                    echo "</form>";
+                    echo "</td>";
                     echo "</tr>";
                 } else {
                     // odd rows
@@ -58,8 +71,19 @@
                     echo "<td class=tableCellOdd>" . $chunks[2] . "</td>";
                     echo "<td class=tableCellOdd><a href='mailto:" . $chunks[3] . "'>" . $chunks[3] . "</a></td>";
                     echo "<td class=tableCellOdd>" . $chunks[4] . "</td>";
-                    echo "<td class=tableCellOdd><a href='/UMS/UserModify.php?userId=" . $chunks[0] . "'>Edit</a></td>";
-                    echo "<td class=tableCellOdd><a href='/UMS/UserDelete.php?userId=" . $chunks[0] . "'>Remove</a></td>";
+                    echo "<td class=tableCellOdd>";
+                    echo "<form action='/UMS/UserModify.php' method='POST' style='display: inline;'>";
+                    echo "<input type=hidden name='mode' value='selected'>";
+                    echo "<input type=hidden name='userId' value='" . $chunks[0] . "'/>";
+                    echo "<button type='submit'>Edit</button>";
+                    echo "</form>";
+                    echo "</td>";
+                    echo "<td class=tableCellOdd>";
+                    echo "<form action='/UMS/UserDelete.php' method='GET' style='display:inline;'>";
+                    echo "<input type=hidden name='userId' value='" . $chunks[0] . "'>"; 
+                    echo "<button type='submit'>Remove</button>";
+                    echo "</form>";
+                    echo "</td>";
                     echo "</tr>";
                 }
             }
@@ -69,7 +93,7 @@
     ?>
     </table>
 
-    <button  style="margin-top:15px" onclick="location.href='UserAdd.html'" >Add Users</button>
+    <button  class="addUser" style="margin-top:15px" onclick="location.href='UserAdd.html'" >Add Users</button>
 
 </body>
 </html>

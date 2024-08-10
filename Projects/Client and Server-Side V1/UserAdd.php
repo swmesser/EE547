@@ -45,5 +45,8 @@
         }
     ?>
 
+    <br>
+    <button onclick="location.href='/UMS/Users.php'">Return to home</button>
+
 </body>
 </html>

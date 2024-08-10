@@ -1,5 +1,17 @@
+body {
+    display:flex;
+    flex-direction: column;
+}
+
+.header{
+    width:fit-content;
+    align-self: center;
+}
+
 .userTable {
     border: double;
+    width: fit-content;
+    align-self: center;
 }
 
 .tableHead {
@@ -16,4 +28,10 @@
 .tableCellOdd {
     background-color: white; /* Correcting potential typo */
     border:solid;
+}
+
+.addUser {
+    font-size: 16px;
+    width:fit-content;
+    align-self: center;
 }

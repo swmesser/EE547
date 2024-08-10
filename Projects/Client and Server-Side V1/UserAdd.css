@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    width:fit-content;
+    align-self: center;
+}
+
+form{
+    border: solid;
+    background-color: lightgrey;
+    width:fit-content;
+    align-self: center;
+}
+
+.userItem {
+    margin: 5px;
+}
+
+.submit {
+    font-size: 16px;
+    align-self: center;
+    margin: 5px;
+}
+
+.return{
+    font-size: 16px;
+    width: fit-content;
+    align-self: center;
+}

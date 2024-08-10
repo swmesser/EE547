@@ -5,9 +5,30 @@ class User {
     public $fname;
     public $lname;
     public $email;
-    public $datetime;
+    public $datetime;   
 
     public function isValid() {
+        if (empty($this->userid) || $this->userid !== htmlspecialchars($this->userid)) {
+            LogMessage("Error: Invalid user Id passed!");
+            return false;
+        } 
+        
+        
+        if ( empty($this->fname) || $this->fname !== htmlspecialchars($this->fname)) {
+            LogMessage("Error: Invalid first name passed!");
+            return false;
+        }
+        
+        if ( empty($this->lname) || $this->lname !== htmlspecialchars($this->lname)) {
+            LogMessage("Error: Invalid last name passed!");
+            return false;
+        } 
+        
+        if ( empty($this->email) || $this->email !== htmlspecialchars($this->email) || filter_var($this->email, FILTER_VALIDATE_EMAIL) == false) {
+            LogMessage("Error: Invalid email passed!");
+            return false;
+        } 
+        
         return true;
     }
 
@@ -61,16 +82,17 @@ function GetUser(string $userid) {
 }
 
 function AddUserWithAll(string $userid, string $fname, string $lname, string $email, string $datetime ) {
-    $user = new User();
+    $newUser = new User();
 
-    $user->userid = $userid;
-    $user->fname = $fname;
-    $user->lname = $lname;
-    $user->email = $email;
-    $user->datetime = $datetime;
+    $newUser->userid = $userid;
+    $newUser->fname = $fname;
+    $newUser->lname = $lname;
+    $newUser->email = $email;
+    $newUser->datetime = $datetime;
 
-    return (AddUser($user));
+    return (AddUser($newUser));
 }
+
 function AddUser(User $user) {
     $successful = false;
 
@@ -109,7 +131,7 @@ function UpdateUser(User $user) {
                 if (count($chunks) == 5) {
                     if ($chunks[0] == $user->userid) {
                         $found = true;
-                        $output = $user->toCSV() . "\n";
+                        $output .= $user->toCSV() . "\n";
                     } else {
                         $output .= $line;
                     }
@@ -150,10 +172,6 @@ function LogMessage(string $message) {
         fprintf($file, "%s,%s\n", $datetime, $message);
         fclose($file);
     }
-}
-
-function deleteUser(string $userId){
-    
 }
 
 ?>

@@ -5,13 +5,14 @@
     <title>UserDelete</title>
 </head>
 <body>
-    // GET or POST? GET (simple)
-    // Capture the ID from the GET
-    // Open the file and remove user from the file
-    //  brute force: copy everything but the user to remove and recopy back to source file
+    
     
 
     <?php 
+    // GET or POST? GET (simple)
+    // Capture the ID from the GET
+    // Open the file and remove user from the file
+    //  brute force: copy everything but the user to remove and recopy back to source file  
         if ($_SERVER['REQUEST_METHOD'] == 'GET'){
             if (( isset($_GET['userId']) == true && strlen($_GET['userId']) > 0 )){
                 $userId = $_GET['userId'];
@@ -60,7 +61,7 @@
                         }
                         
                     }
-
+                    echo "<p>User ". $userId ." has been removed</p>";
                     fclose($usersModified);
                     fclose($userFile);
                     
@@ -74,5 +75,7 @@
         }
     ?>
     
+    <br>
+    <button onclick="location.href='/UMS/Users.php'">Return to home</button>
 </body>
 </html>

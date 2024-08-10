@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserModify</title>
-    <script src="User_add.js"></script>
+    <link rel="stylesheet" href="/UMS/UserModifiy.css">
 </head>
 <body>
+    <h1>Add User Form</h1>
     <?php
+    include "UMS.php";
     
     if ($_SERVER['REQUEST_METHOD'] == "POST"){
         if ((isset($_POST["mode"]) == true) && (isset($_POST['userId']) == true)){
@@ -43,19 +45,21 @@
                     
                     if ($found == true){
                         echo "<form action='UserModify.php' method='POST'>";
-                        echo "<label for='userId'>User Id: </label>";
-                        echo "<input type='text'  id='userId' name='userId' readonly='readonly' value='". $chunks[0] ."'/> <br>";
-                        echo "<label for='fname'>Firstname: </label>";
-                        echo "<input type='text'  id='fname' name='fname' value='". $chunks[1] ."'/> <br>";
-                        echo "<label for='lname'>Lastname: </label>";
-                        echo "<input type='text'  id='lname' name='lname' value='" . $chunks[2] ."'/> <br>";
-                        echo "<label for='email'>Email: </label>";
-                        echo "<input type='text'  id='email' name='email' value='" .$chunks[3] ."'/> <br>";
-                        echo "<label for='datetime'>Datetime: </label>";
-                        echo "<input type='text'  id='datetime' value='" .$chunks[4] ."'/> <br>";
-                        echo "<input type='text' id='mode' name='mode' value='changed'/>";
+                        echo "<label class='userItem' for='userId'>User Id: </label>";
+                        echo "<input class='userItem' type='text'  id='userId' name='userId' readonly='readonly' value='". $chunks[0] ."'/> <br>";
+                        echo "<label class='userItem' for='fname'>Firstname: </label>";
+                        echo "<input class='userItem' type='text'  id='fname' name='fname' value='". $chunks[1] ."'/> <br>";
+                        echo "<label class='userItem' for='lname'>Lastname: </label>";
+                        echo "<input class='userItem' type='text'  id='lname' name='lname' value='" . $chunks[2] ."'/> <br>";
+                        echo "<label class='userItem' for='email'>Email: </label>";
+                        echo "<input class='userItem' type='text'  id='email' name='email' value='" .$chunks[3] ."'/> <br>";
+                        echo "<label class='userItem' for='datetime'>Datetime: </label>";
+                        echo "<input class='userItem' type='text'  id='datetime' name='datetime' value='" .$chunks[4] ."'/> <br>";
+                        echo "<input class='userItem' type='text' id='mode' name='mode' value='changed'/>";
                         echo "<input type='submit'/>";
                         echo "</form>";
+
+                        
                     }else{
                         echo "Warning: User not found!";
                         echo "<br> <a href='/UMS/UserAdd.html'>Add User!</a>";
@@ -68,9 +72,17 @@
                     $fname = $_POST['fname'];
                     $lname = $_POST['lname'];
                     $email = $_POST['email'];
-                    // validate (HTML special characters, email, etc)
-                    // open file, check if the userId exist, edit file (make new one and copy back to original)
-                    // TODO...
+                    $datetime = $_POST['datetime'];
+
+                    $updatedUser = new User;
+                    $updatedUser->userid = $userId;
+                    $updatedUser->fname = $fname;
+                    $updatedUser->lname = $lname;
+                    $updatedUser->email = $email;
+                    $updatedUser->datetime = $datetime;
+
+                    UpdateUser($updatedUser);
+
 
                     echo "<p>Change Successful!</p>";
                 } else {
@@ -87,5 +99,8 @@
     }
 
     ?>
+
+    <br>
+    <button class="return" onclick="location.href='/UMS/Users.php'">Return to Home</button>
 </body>
 </html>
