@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserModify.html</title>
+    <script src="UserModify.js"></script>
 </head>
 <body>
-    <form action="UserModify.php" onsubmit="clientValidate();" method="post">
+    <form action="UserModify.php" name="Modify" onsubmit="clientValidate();" method="post">
         <label for="userId">User ID: </label>
         <input type="text" name="userId" id="userId" required="required"/> <br>
         <label for="fname">Firstname: </label>
@@ -15,7 +16,7 @@
         <input type="text" name="lname" id="lname" required="required"/> <br>
         <label for="email">Email: </label>
         <input type="text" name="email" id="email" required="required"/> <br>
-        <input type="submit" value="Create User">
+        <input type="submit" value="Edit User">
     </form>
 </body>
 </html>

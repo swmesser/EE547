@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserModify</title>
     <link rel="stylesheet" href="/UMS/UserModifiy.css">
+    <script src="UserModify.js"></script>
 </head>
 <body>
-    <h1>Add User Form</h1>
+    <h1>Edit User Form</h1>
     <?php
     include "UMS.php";
     
@@ -44,7 +45,7 @@
                     fclose($userFile);
                     
                     if ($found == true){
-                        echo "<form action='UserModify.php' method='POST'>";
+                        echo "<form action='UserModify.php' onsubmit='return clientValidate();' method='POST'>";
                         echo "<label class='userItem' for='userId'>User Id: </label>";
                         echo "<input class='userItem' type='text'  id='userId' name='userId' readonly='readonly' value='". $chunks[0] ."'/> <br>";
                         echo "<label class='userItem' for='fname'>Firstname: </label>";

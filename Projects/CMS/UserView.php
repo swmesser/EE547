@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserView</title>
-    <link rel="stylesheet" href="/UMS/UserView.css">
+    <link rel="stylesheet" href="UserView.css">
 </head>
 <body>
     <h2>View Selected User</h2>
